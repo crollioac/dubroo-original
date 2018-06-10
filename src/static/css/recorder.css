@@ -1,0 +1,185 @@
+.recorder-body {
+	max-width: 94%;
+	margin: auto;
+	margin-top: 10px;
+	background-color: #fff;
+	padding-bottom: 15px;
+}
+
+.note-board {
+	min-height: 300px;
+	background-color: #fff;
+	width: 100%;
+	color: #762828;
+	font-size: 20px;
+	background: transparent;
+}
+.note-board-holder {
+	background: url('/static/imgs/notespageback.png');
+}
+
+.helpingSection {
+	padding: 15px 0 15px 2%;
+}
+
+.pauseResumeStopDiv {
+	display: none;
+}
+
+.uplaodLoad {
+	display: none;
+}
+.recordbtn {
+	margin: auto;
+	width: 130px;
+}
+
+.audiometadata {
+	display: none;
+	margin-top: 10px;
+}
+.audiometadata > div {
+	/*float: left;*/
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	display: inline-block;
+}
+
+.audiometadata input {
+	width: 150px;
+	width: 150px;
+    height: 33px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.left-col > div {
+	float: left;
+	width: 100%;
+}
+.left-col .btns {
+	margin: 5px 10px 5px 0;
+}
+
+.videostarttime {
+	/*text-align: left;
+	 float: left;
+	 width: 100%;*/
+	text-align: center;
+}
+
+
+.previewstarttime {
+	display: none;
+	text-align: center;
+}
+.previewstarttime input {
+	display: inline-block;
+	/*float: left;*/
+}
+.recordbtn {
+	margin: auto !important;
+	float: none;
+}
+.videostarttime input, .previewstarttime input {
+
+	width: 190px;
+	height: 32px;
+	padding: 0px 0 0 7px;
+	border: 1px solid transparent;
+	font-size: 12px;
+	/*float: left;*/
+}
+
+.pauseResumeStopDiv span, .uplaodLoad span {
+	display: inline-block;
+}
+
+span.resumebtn {
+	display: none;
+	padding: 7px 12px;
+}
+.previewaudioplayer {
+	/*display: none;*/
+	margin: 0px 5px 0;
+	position: relative;
+	/*float: left;*/
+}
+.adboard {
+	background-color: #fff;
+	border: 1px solid #999;
+	font-size: 20px;
+	text-align: center;
+	padding: 2% 3%;
+	line-height: 3;
+}
+.adboard span {
+	font-weight: bold;
+}
+.gifstop {
+	display: none;
+}
+.recordbtndiv {
+	position: relative;
+}
+.recordbtndiv > div {
+	float: left;
+	margin-right: 10px;
+}
+.enableMicrophone {
+	background-color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 12px;
+}
+.enableMicrophoneWrapper img {
+	width: 20px;
+}
+.counter {
+	font-size: 20px;
+}
+.recordstudio > p {
+	color: #ff2311;
+	font-size: 25px;
+	line-height: 30px;
+	display: none;
+}
+.recordstudio > div {
+	display: none;
+}
+
+.pauseResumeStopDiv, .audiometadata, .previewaudioplayer, .UploadFunctions,.previewSection {
+	display: none;
+	margin-bottom: 10px;
+}
+.previewSection .previewFunctions {
+	float: left;
+}
+.previewSection .syncingBlock, .syncbtn{
+	float: right;
+}
+.syncbtn {
+	margin: 5px 0;
+}
+
+.previewFunctions > div {
+	float: left;
+	margin-right: 10px;
+}
+.previewstarttime label {
+	color: #fff;
+}
+.audiometadata {
+	margin-top: 20px;
+}
+.audiometadata > div {
+	float: left;
+}
+audio {
+	    float: left;
+    margin: 5px 10px;
+}

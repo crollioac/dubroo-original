@@ -1,0 +1,624 @@
+body {
+
+	text-align: center;
+	font-family: 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+	letter-spacing: 1px;
+	margin: 0;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+* html .clearfix {
+	height: 1%;
+}
+
+header {
+	padding: 1% 4% 0;
+}
+textarea:focus, input:focus {
+	outline: 0;
+}
+
+.logo {
+	float: left;
+}
+.page-body {
+	float: left;
+	width: 100%;
+	background-color: #e9eaed;
+	padding-bottom: 1%;
+	padding-top: 1%;
+}
+.logoimg img {
+	width: 140px;
+	margin-top: 10px;
+}
+.btns {
+
+	padding: 0px 12px;
+    /* margin: 0px 10px 0px 0; */
+    /* border: 1px solid #888; */
+    background-color: #EF9D11;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+    height: 33px;
+    display: inline-block;
+    line-height: 33px;
+}
+
+.bgcover {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #333333;
+	opacity: 0.4;
+	z-index: 9999;
+	display: none;
+}
+
+.messageboard {
+
+	display: none;
+	z-index: 10000000;
+	width: 60%;
+	position: fixed;
+	top: 10%;
+	left: 18%;
+	background-color: #fff;
+	color: #333333;
+	padding: 2%;
+	border: 1px solid #fff;
+	border-radius: 10px;
+}
+
+.messageboard > div {
+	float: left;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+.message {
+	position: relative;
+}
+
+.closebtn {
+	position: absolute;
+	right: 10px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.nav > li {
+	padding: 5px;
+}
+
+.nav > li > a {
+	padding: 5px 5px 1px 5px;
+	color: #444242;
+	border-bottom: 1px solid #444242;
+}
+
+.nav-tabs {
+	border-bottom: none;
+}
+
+.videoadditionform > div {
+	/*float: left;*/
+	width: 80%;
+	margin: 20px auto;
+}
+
+.okbtn span {
+	padding: 8px 30px;
+	margin: 5px;
+	border-radius: 2px;
+	/*border: 1px solid #888;*/
+	background-color: #FFA500;
+	color: #000000;
+	cursor: pointer;
+}
+
+.discussionforum {
+	width: 100%;
+	float: left;
+}
+#disqus_thread {
+	width: 90%;
+	margin: auto;
+}
+
+.titles {
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.videocategoryselect {
+	padding: 6px 10px;
+	width: 70%;
+	font-size: 15px;
+}
+
+.videoscontainer {
+	/*padding: 0 10px;*/
+	float: left;
+	width: 100%;
+}
+
+.videoThumbnailWrapper {
+	width: 100%;
+	/*height: 150px;*/
+	float: left;
+	/*margin: 10px 0;*/
+	/*padding: 10px;*/
+	/*border: 1px solid #999;*/
+	cursor: pointer;
+	/*background-color: #eaeaea;*/
+	/*border-radius: 3px;*/
+	box-sizing: border-box;
+	text-align: center;
+	margin-top: 5px;
+}
+.relatedVideos .videoThumbnailWrapper {
+
+	height: 150px;
+}
+.videoimg {
+	width: 100%;
+	height: 110px;
+	border: 1px solid #ccc;
+}
+.videoimg img {
+	height: 110px;
+	width: 100%;
+}
+.vid-name {
+
+	font-size: 12px;
+	font-weight: bold;
+	/*height: 45px;*/
+	line-height: 15px;
+	margin-top: 5px;
+	text-transform: capitalize;
+}
+
+h3, h4 {
+	text-align: left;
+	/*margin: 0px 4%;*/
+}
+.searchvideo {
+	float: left;
+	margin: 10px 0 0 20px;
+	position: relative;
+}
+.videosearchbox {
+	height: 30px !important;
+	/*border: 1px solid #F09D05!important;*/
+	border-radius: 5px !important;
+	width: 250px !important;
+	padding: 0 10px !important;
+	margin-bottom: 15px;
+}
+.searchimg {
+	width: 24px;
+	position: absolute;
+	right: 2px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.suggestionbox, .audiosuggestionbox {
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 35px;
+	background-color: #fff;
+	min-width: 100%;
+	text-align: left;
+	z-index: 99;
+}
+
+.searchvideorow {
+	padding: 5px;
+	border-bottom: 1px solid transparent;
+	cursor: pointer;
+}
+
+.searchvideorow:hover {
+	background-color: #666;
+	color: #fff;
+	font-weight: bold;
+}
+.socialplugin {
+	float: left;
+	margin: 12px 0 0 25px;
+}
+.gallery-body {
+	background-color: #fff;
+}
+.questionmark {
+	display: inline-block;
+	position: relative;
+}
+.questionmark img {
+	width: 20px;
+	cursor: pointer;
+	position: relative;
+	top: 4px;
+}
+.instructionBoard, .menuExplainationBoard {
+
+	background-color: #fff;
+	border: 1px solid #555;
+	border-radius: 4px;
+	padding: 10px;
+	position: absolute;
+	top: 30px;
+	display: none;
+	z-index: 1;
+	width: 300px;
+}
+
+.instructionBoard {
+	text-align: center;
+}
+.explainationBoardDub {
+	position: relative;
+	/* float: left; */
+	right: 3px;
+	top: -20px;
+	display: none;
+	overflow: none !important;
+}
+.explainationBoardDub .toparrow {
+	display: block !important;
+}
+
+.explainationBoardDub .menuExplainationBoard {
+	display: block !important;
+	width: 630%;
+	text-align: left;
+	padding: 20px;
+}
+.menuExplainationBoard p {
+	margin: 10px 0;
+	font-size: 13px;
+}
+.menuExplainationBoard p span {
+	margin: 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+.showtoright {
+	left: -5px;
+}
+
+.showtoleft {
+	right: -5px;
+}
+
+.showatcenter {
+	left: -150px;
+}
+
+.toparrow {
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #555;
+	position: absolute;
+	top: 20px;
+	left: 1px;
+	display: none;
+}
+
+.topmenu {
+	float: right;
+	/*margin-top: 6px;*/
+}
+.topmenu li {
+	position: relative;
+}
+.topmenu li:hover {
+
+	/*text-decoration: underline;*/
+
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	float: left;
+	list-style: none;
+	padding: 10px;
+	cursor: pointer;
+}
+ul li a {
+	color: #666;
+}
+
+.loader, .pageloader {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0;
+	background: url('/static/imgs/animation.gif') no-repeat center center;
+	background-size: 20px;
+	-moz-background-size: 20px;
+	-webkit-background-size: 20px;
+	-ms-background-size: 20px;
+	-o-background-size: 20px;
+}
+
+.pageloader {
+	background-size: 40px;
+	-moz-background-size: 40px;
+	-webkit-background-size: 40px;
+	-ms-background-size: 40px;
+	-o-background-size: 40px;
+}
+
+.disabledBtns {
+	background-color: #888888;
+	color: #ddd;
+	cursor: default;
+}
+.aboutus .explainationBoardDub {
+	display: block;
+}
+
+.loginModal {
+	display: none;
+	padding: 2%;
+	position: fixed;
+	top: 10%;
+	left: 20%;
+	width: 60%;
+	background-color: #F2F2F2;
+	border: 1px solid #555555;
+	border-radius: 3px;
+	z-index: 9999999;
+}
+
+.registermsg {
+	font-size: 12px;
+	line-height: 4;
+}
+.loginBtn {
+
+}
+.regBtn {
+
+	padding: 3px 10px;
+	background-color: #3B5998;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#signinButton span {
+	background-color: #CB3426;
+}
+
+.fblogin span {
+	background-color: #3B5AA8;
+}
+
+.loginBtns img {
+	width: 40px;
+	cursor: pointer;
+}
+.loginBtns span {
+	padding: 0px 10px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 30px;
+	display: inline-block;
+	margin-left: -6px;
+}
+
+.RegisterBtn {
+	display: none;
+}
+
+.modal {
+	text-align: left;
+	z-index: 9999999999;
+}
+.modal p span {
+	font-weight: bold;
+}
+
+.modal p img {
+	width: 22px;
+	margin-right: 5px;
+}
+
+.recordLin {
+	padding: 6px 3px;
+}
+
+.logoutbox {
+	display: none;
+	position: absolute;
+	right: 10px;
+	background-color: #fff;
+	text-align: right;
+	border: 1px solid #999;
+	z-index: 99;
+	top: 45px;
+	width: 111px;
+	border-radius: 3px;
+	background: white;
+}
+.userDetailHolder div > a {
+	margin: 0 4px;
+}
+.userDetailHolder div {
+	padding: 2px 0;
+}
+.userDetailHolder div:hover, .userDetailHolder div:hover a {
+	background-color: #EF9C11;
+	color: #fff !important;
+	text-decoration: none !important;
+}
+.recordingStatus {
+	font-size: 12px;
+	color: #0316D8;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+	background-color: #EF9C11;
+	/*font-weight: bold;*/
+	color: #000;
+}
+.errorMsg {
+	color: #f00;
+	text-align: center;
+}
+
+.categorySection {
+	text-align: left;
+	padding: 20px 0;
+	/*border-bottom: 1px solid #999999;*/
+	float: left;
+	width: 100%;
+	display: none;
+}
+.categorySection .categoryVideos {
+	/*height: 265px;*/
+	/*width: 96%;*/
+	float: left;
+}
+.categoryHeading {
+	padding-left: 1.3%;
+	font-size: 16px;
+	font-weight: bold;
+}
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+.videosWrapper {
+	width: 96%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	float: left;
+}
+
+.nav > li.logoutBtn {
+	display: none;
+}
+.logoutBtn img {
+	width: 30px;
+}
+.dubroocampagin {
+	float: left;
+}
+.dubroocampagin img {
+	width: 100%;
+}
+.campaignHead {
+	margin-top: 10px;
+}
+.dubroocampagin p span {
+	font-weight: bold;
+}
+.VideoThumb {
+	position: relative;
+}
+.helpingBtns {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+}
+.VideoThumb a {
+	padding: 2px 10px;
+}
+.galleryitem {
+	border-right: 1px solid #ccc;
+	margin-bottom: 10px;
+	/*height: 170px;*/
+}
+.dubcount {
+	font-size: 11px;
+}
+h4.row {
+	padding: 0 15px;
+	margin-top: 30px;
+}
+h3.row {
+	padding: 0 14px;
+	text-align: center;
+}
+.addvideoname {
+	display: none;
+}
+
+.uploadaudio {
+	background-color: #ef9d11;
+}
+.loginBtns > div {
+	float: left;
+	margin-right: 20px;
+}
+.record-page .catTabsContainer, .studio-page .catTabsContainer {
+	width: 94%;
+	margin: auto;
+}
+.record-page .catTabs li, .studio-page .catTabs li {
+	float: left;
+	background-color: #fff;
+	color: #444;
+	margin: 5px 1px 5px 0;
+	padding: 2px 8px;
+	font-size: 12px;
+	font-size: 12px;
+}
+.catTabs li:hover {
+	background-color: #efa94d;
+}
+
+.record-page .catTabs li.active, .studio-page .catTabs li.active {
+	color: #000;
+	background-color: #efa94d;
+}
+.loadMore img {
+	width: 30px;
+	cursor: pointer;
+}
+.loadMore {
+	/*float: right;*/
+	text-align: center;
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+}
+.loadMoreWrapper, .loadMoreWrapperGallery {
+	width: 20%;
+	margin: auto;
+	padding: 10px;
+	background-color: #EF9D11;
+	cursor: pointer;
+	border-radius: 30px;
+}
+.loadMoreWrapper:hover, .loadMoreWrapperGallery:hover {
+	background-color: #DDDDDD;
+}
+.relatedVideos {
+	width: 94%;
+	margin: 20px auto;
+	padding-bottom: 20px;
+}
