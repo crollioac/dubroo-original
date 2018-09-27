@@ -114,9 +114,9 @@ $(document).ready(function() {
 		$(".gifstop").hide();
 	}
 	
-	// if(!recordRTC) {
-		// enableMicrophone();
-	// }
+	if(!recordRTC) {
+		enableMicrophone();
+	}
 
 	$("#audio").unbind().bind("loadeddata", function() {
 
@@ -224,7 +224,7 @@ $(document).ready(function() {
 
 	$(".recordbtn").click(function(e) {
 		// if(userLoginStatus == true){
-		if (recordRTC != "") {
+		// if (recordRTC != "") {
 
 			// if($.trim($(this).text()) == "Record"){
 			if (wantsToRecord == false) {
@@ -241,16 +241,16 @@ $(document).ready(function() {
 				}, 1000);
 
 			}
-		} else {
-			$(".enableMicrophone").show();
-			$(".bgcover,.messageboard").slideDown(200);
-			$(".messageboard p").html("Enable microphone to Record your Voice");
-			$(".closebtn,.okbtn,.bgcover").unbind().bind("click", function() {
-				$(".bgcover,.messageboard").slideUp(200);
-				$(".messageboard p").empty();
-			});
-			enableMicrophone();
-		}
+		// } else {
+			// $(".enableMicrophone").show();
+			// $(".bgcover,.messageboard").slideDown(200);
+			// $(".messageboard p").html("Enable microphone to Record your Voice");
+			// $(".closebtn,.okbtn,.bgcover").unbind().bind("click", function() {
+			// 	$(".bgcover,.messageboard").slideUp(200);
+			// 	$(".messageboard p").empty();
+			// });
+			// enableMicrophone();
+		// }
 	});
 
 	$(".enableMicrophone").click(function(e) {
@@ -300,10 +300,7 @@ $(document).ready(function() {
 
 		previewSessionOn();
 		recordingSession = false;
-		if (videottype != "gif") {
 			recordplayer.stopVideo();
-		}
-
 		// $(".pausebtn").show().addClass("disabledBtns");
 		$(".resumebtn").hide();
 		$(".recordingStatus").html("Preview recording");
@@ -319,27 +316,23 @@ $(document).ready(function() {
 			console.log(audioURL);
 			audiou = audioURL;
 			blob = recordRTC.getBlob();
-
 			recordplayer.stopVideo();
 
 			$(".pageloader").hide();
 
 		});
-
-		// }
-
 	});
 
 	$(".cancelbtn").click(function() {
-
 		$(".audioname input").val("");
-
 		$(".starttime input").val("");
 		resetRecordingPage();
 		$('#audio').attr("src", "");
 		$(".recordingStatus").html("");
+    $(".previewstarttime").hide();
 
 		blob = "";
+		recordRTC = "";
 
 	});
 
@@ -539,50 +532,50 @@ function storeAudio(audioname, composer, composermail, starttime, language) {
 
 startRecording = function() {
 	$('.counter').hide();
-	if (videottype == "gif") {
-		// setTimeout(function(){
+	// if (videottype == "gif") {
+	// 	// setTimeout(function(){
 
-		// console.log($(".gfyVid"));
-		var duration = $(".gfyVid")[0].duration;
-		// console.log(duration);
-		// duration = Math.ceil(duration);
+	// 	// console.log($(".gfyVid"));
+	// 	var duration = $(".gfyVid")[0].duration;
+	// 	// console.log(duration);
+	// 	// duration = Math.ceil(duration);
 
-		duration = parseFloat(duration) * 1000;
-		// console.log(duration);
-		recordRTC.startRecording();
-		$(".gfyVid")[0].load();
-		$(".recordbtndiv").hide();
-		$(".pauseResumeStopDiv").show();
-		$(".recordingStatus").html("Recording ...");
+	// 	duration = parseFloat(duration) * 1000;
+	// 	// console.log(duration);
+	// 	recordRTC.startRecording();
+	// 	$(".gfyVid")[0].load();
+	// 	$(".recordbtndiv").hide();
+	// 	$(".pauseResumeStopDiv").show();
+	// 	$(".recordingStatus").html("Recording ...");
 
-		setTimeout(function() {
+	// 	setTimeout(function() {
 
-			$(".stopbtn").trigger("click");
-		}, duration);
-		// },2000);
+	// 		$(".stopbtn").trigger("click");
+	// 	}, duration);
+	// 	// },2000);
 
-	} else {
+	// } else {
 
-		var videostarttime = $(".videostarttime input").val();
-		if (videostarttime == "") {
-			videostarttime = 0;
-		}
-
-		recordplayer.loadVideoById({
-			videoId : videoID,
-			startSeconds : parseInt($.trim(videostarttime))
-		});
-		wantsToRecord = true;
-		recordingSession = true;
-
-		if (videoCategory == "karaoke") {
-			recordplayer.unMute();
-		} else {
-			recordplayer.mute();
-		}
-		recordplayer.playVideo();
-
+	var videostarttime = $(".videostarttime input").val();
+	if (videostarttime == "") {
+		videostarttime = 0;
 	}
+
+	recordplayer.loadVideoById({
+		videoId : videoID,
+		startSeconds : parseInt($.trim(videostarttime))
+	});
+	wantsToRecord = true;
+	recordingSession = true;
+
+	if (videoCategory == "karaoke") {
+		recordplayer.unMute();
+	} else {
+		recordplayer.mute();
+	}
+	recordplayer.playVideo();
+
+	// }
 };
 
 const enableMicrophone = function() {
@@ -590,7 +583,10 @@ const enableMicrophone = function() {
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
                           navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-  if (navigator.getUserMedia){
+  if(navigator.mediaDevices.getUserMedia)
+	  navigator.getUserMedia = navigator.mediaDevices.getUserMedia;
+  
+  if (navigator.getUserMedia) {
 		navigator.getUserMedia({
 			audio : true
 		}, function(mediaStream) {
@@ -598,13 +594,14 @@ const enableMicrophone = function() {
 
 			recordRTC = RecordRTC(mediaStream, {
 				type : 'audio',
+				mimeType: 'audio/ogg',
 				recorderType : StereoAudioRecorder,
 				numberOfAudioChannels : 1 // or leftChannel:true
 			});
 
 			// $(".gfyVid")[0].pause();
-			$(".bgcover,.messageboard").slideUp(200);
-			$(".messageboard p").empty();
+			// $(".bgcover,.messageboard").slideUp(200);
+			// $(".messageboard p").empty();
 			$(".enableMicrophone").hide();
 			// startRecording();
 		}, function() {
@@ -615,6 +612,7 @@ const enableMicrophone = function() {
 
 function endCountdown() {
 	// logic to finish the countdown here
+	enableMicrophone();
 	startRecording();
 }
 
