@@ -25,6 +25,11 @@ handlers:
   upload: static/
   secure: always
 
+- url: /privacy-policy
+  static_files: static/privacy_policy.html
+  upload: static/
+  secure: always
+
 - url: /moderate
   static_files: static/admin.html
   upload: static/
